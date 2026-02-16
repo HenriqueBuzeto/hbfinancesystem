@@ -62,7 +62,7 @@ export default function DespesasPage() {
           return;
         }
         setTotalDespesas(data.total ?? 0);
-        const byCat = (data.byCategory ?? []).map((c: { id: string; name: string; amount: number; budget?: number }, i: number) => ({
+        const byCat: CategoryExpense[] = (data.byCategory ?? []).map((c: { id: string; name: string; amount: number; budget?: number }, i: number) => ({
           id: c.id,
           name: c.name,
           amount: c.amount,
@@ -71,7 +71,7 @@ export default function DespesasPage() {
         }));
         setCategories(byCat);
         setMonthlyEvolution(data.monthlyEvolution ?? []);
-        const over = byCat.filter((c) => c.budget != null && c.amount > c.budget);
+        const over = byCat.filter((c: CategoryExpense) => c.budget != null && c.amount > c.budget);
         setOverBudget(over);
       })
       .catch(() => {
