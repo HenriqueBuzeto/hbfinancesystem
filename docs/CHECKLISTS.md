@@ -1,4 +1,4 @@
-# Nebula Finance – Checklists
+# HB Finance – Checklists
 
 ## Segurança
 
@@ -23,7 +23,7 @@
 ## Acessibilidade (WCAG 2.1 AA)
 
 - [ ] Contraste de texto (mín. 4.5:1 para texto normal)
-- [ ] Foco visível em todos os interativos (outline com cor Nebula Purple)
+- [ ] Foco visível em todos os interativos (outline com cor do tema)
 - [ ] Navegação por teclado (Sidebar, modais, formulários)
 - [ ] Labels associados a inputs (sr-only quando necessário)
 - [ ] aria-current na navegação atual

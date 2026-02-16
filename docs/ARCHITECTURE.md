@@ -1,4 +1,4 @@
-# Nebula Finance – Arquitetura e trade-offs
+# HB Finance – Arquitetura e trade-offs
 
 ## Checklist de arquitetura
 
@@ -19,7 +19,7 @@
 
 ### Edge Functions vs Serverless vs Serverful
 
-| Abordagem | Uso no Nebula | Justificativa |
+| Abordagem | Uso no HB Finance | Justificativa |
 |-----------|----------------|---------------|
 | **Edge (Vercel)** | Cotação, notícias, health check | Baixa latência, cache global; sem acesso direto ao DB. |
 | **Serverless (Vercel API Routes)** | /api/ai/advisor, CRUD, auth | Integração natural com Next.js; cold start aceitável para APIs de usuário. |
@@ -44,7 +44,7 @@ Implementação: abstração `WhatsAppProvider` em `services/worker` permite tro
 ## Estrutura de pastas (referência)
 
 ```
-nebula-finance/
+hb-finance/
 ├── apps/web          # Next.js (App Router + API Routes)
 ├── packages/ui       # Design tokens, cn(), componentes compartilhados
 ├── services/api      # Prisma schema, lógica compartilhada, opcional API standalone

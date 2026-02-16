@@ -1,5 +1,5 @@
 /**
- * Nebula Finance - Worker BullMQ
+ * HB Finance - Worker BullMQ
  * Consome filas: nebula:whatsapp e nebula:email.
  * Dead-letter: jobs que falham após todas as tentativas.
  */
@@ -74,8 +74,8 @@ const emailWorker = new Worker(
   w.on('error', (err) => console.error('[Worker] Error:', err));
 });
 
-console.log('[Nebula Worker] Listening for jobs on nebula:whatsapp and nebula:email');
-if (isDev) console.log('[Nebula Worker] Dev mode: WhatsApp/Email logged to console');
+console.log('[HB Finance Worker] Listening for jobs on nebula:whatsapp and nebula:email');
+if (isDev) console.log('[HB Finance Worker] Dev mode: WhatsApp/Email logged to console');
 
 async function shutdown() {
   await whatsappWorker.close();

@@ -1,6 +1,6 @@
 /**
  * Provedor de e-mail via Resend (https://resend.com).
- * Variáveis: RESEND_API_KEY, EMAIL_FROM (ex: "Nebula <notificacoes@seu-dominio.com>").
+ * Variáveis: RESEND_API_KEY, EMAIL_FROM (ex: "HB Finance <notificacoes@seu-dominio.com>").
  */
 
 import type { EmailProvider } from '../processors/email';

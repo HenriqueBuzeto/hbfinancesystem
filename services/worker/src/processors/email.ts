@@ -34,6 +34,6 @@ async function getResendProvider(): Promise<EmailProvider> {
   const { ResendProvider } = await import('../providers/resend.js');
   return new ResendProvider(
     process.env.RESEND_API_KEY!,
-    process.env.EMAIL_FROM ?? 'Nebula Finance <notificacoes@nebula.finance>'
+    process.env.EMAIL_FROM ?? 'HB Finance <notificacoes@hbfinance.com.br>'
   );
 }
