@@ -5,7 +5,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { getAuthFromRequest } from '@/lib/auth';
-import type { CategoryType } from '@prisma/client';
+
+type CategoryType = 'INCOME' | 'EXPENSE';
 
 export async function GET(request: NextRequest) {
   const payload = await getAuthFromRequest(request);

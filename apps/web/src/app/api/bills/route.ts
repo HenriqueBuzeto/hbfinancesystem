@@ -6,7 +6,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
 import { getAuthFromRequest } from '@/lib/auth';
-import type { BillType, BillStatus } from '@prisma/client';
+
+type BillType = 'PAYABLE' | 'RECEIVABLE';
+type BillStatus = 'PENDING' | 'PAID' | 'OVERDUE' | 'CANCELLED';
 
 const CreateBillSchema = z.object({
   description: z.string().min(1, 'Descrição é obrigatória'),
