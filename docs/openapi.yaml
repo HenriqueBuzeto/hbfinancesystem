@@ -1,0 +1,138 @@
+# Nebula Finance - OpenAPI 3.0 (mínimo)
+openapi: 3.0.3
+info:
+  title: Nebula Finance API
+  version: 0.1.0
+  description: API REST para autenticação, transações e AI Advisor.
+
+paths:
+  /api/auth/login:
+    post:
+      summary: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string, format: email }
+                password: { type: string }
+      responses:
+        '200':
+          description: accessToken, refreshToken, user
+        '401':
+          description: Credenciais inválidas
+
+  /api/auth/refresh:
+    post:
+      summary: Renovar access token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                refreshToken: { type: string }
+      responses:
+        '200':
+          description: accessToken, expiresIn
+        '401':
+          description: Refresh token inválido
+
+  /api/transactions:
+    get:
+      summary: Lista transações (JWT)
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - name: limit
+          in: query
+          schema: { type: integer, default: 50 }
+        - name: offset
+          in: query
+          schema: { type: integer, default: 0 }
+        - name: from
+          in: query
+          schema: { type: string, format: date }
+        - name: to
+          in: query
+          schema: { type: string, format: date }
+      responses:
+        '200':
+          description: { data, total, limit, offset }
+        '401':
+          description: Não autorizado
+    post:
+      summary: Cria transação (JWT)
+      security: [{ bearerAuth: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [accountId, amount, type, date]
+              properties:
+                accountId: { type: string }
+                categoryId: { type: string, nullable: true }
+                amount: { type: number }
+                type: { type: string, enum: [INCOME, EXPENSE, TRANSFER] }
+                description: { type: string, nullable: true }
+                date: { type: string, format: date-time }
+      responses:
+        '200':
+          description: Transação criada
+        '401':
+          description: Não autorizado
+
+  /api/ai/advisor:
+    post:
+      summary: AI Finance Advisor (dados anonimizados)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [userId, anonymizedTransactions, balances]
+              properties:
+                userId: { type: string }
+                anonymizedTransactions:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      date: { type: string }
+                      amount: { type: number }
+                      type: { type: string, enum: [income, expense, transfer] }
+                      category: { type: string }
+                balances:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      accountId: { type: string }
+                      balance: { type: number }
+                      currency: { type: string }
+                income: { type: number }
+                goals:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name: { type: string }
+                      target: { type: number }
+                      current: { type: number }
+      responses:
+        '200':
+          description: summary, recommendations, projection, riskAlerts, confidence, disclaimer
+        '400':
+          description: Payload inválido
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nebula-black: #050505;
+  --nebula-black-soft: #0a0a0f;
+  --nebula-purple: #7c3aed;
+  --nebula-violet: #8b5cf6;
+  --nebula-violet-light: #a78bfa;
+  --nebula-violet-soft: rgba(139, 92, 246, 0.15);
+  --font-inter: 'Inter', system-ui, sans-serif;
+  /* Glassmorphism */
+  --glass-bg: rgba(15, 15, 22, 0.72);
+  --glass-border: rgba(124, 58, 237, 0.2);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  /* Gradientes premium (Gradienty-inspired) */
+  --gradient-auth: linear-gradient(135deg, #050505 0%, #0f0a1a 40%, #1a0a2e 70%, #0d0518 100%);
+  --gradient-card: linear-gradient(145deg, rgba(124, 58, 237, 0.06) 0%, rgba(15, 15, 22, 0.85) 100%);
+  --gradient-glow: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124, 58, 237, 0.25), transparent);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--nebula-black);
+  color: #fafafa;
+  font-family: var(--font-inter);
+}
+
+/* Focus visível para acessibilidade WCAG */
+*:focus-visible {
+  outline: 2px solid var(--nebula-purple);
+  outline-offset: 2px;
+}
+
+/* Redução de movimento para preferência do usuário */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Auth: gradientes e orbs para telas de login/criar conta */
+.auth-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+.auth-orb-purple { background: radial-gradient(circle, rgba(124, 58, 237, 0.5) 0%, transparent 70%); }
+.auth-orb-violet { background: radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, transparent 70%); }
+.auth-input-glow:focus-within {
+  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.4), 0 0 24px -4px rgba(124, 58, 237, 0.25);
+}
+
+/* Background premium para auth (dark + roxo) */
+.auth-page-bg {
+  background: var(--gradient-auth);
+  min-height: 100vh;
+}
+
+/* Cards glassmorphism premium */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), 0 0 60px -12px rgba(124, 58, 237, 0.2);
+}
+
+/* Dashboard: cards premium com borda em gradiente e glow */
+.card-premium {
+  position: relative;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.4) 0%, rgba(139, 92, 246, 0.2) 40%, rgba(124, 58, 237, 0.1) 100%);
+  box-shadow: 0 0 40px -8px rgba(124, 58, 237, 0.25);
+  transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-premium:hover {
+  box-shadow: 0 0 56px -6px rgba(124, 58, 237, 0.4), 0 0 24px -8px rgba(139, 92, 246, 0.2);
+}
+.card-premium-inner {
+  border-radius: 15px;
+  background: linear-gradient(160deg, rgba(12, 12, 18, 0.95) 0%, rgba(18, 18, 28, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  min-height: 100%;
+  padding: 1.25rem;
+}
+.card-premium-inner.card-premium-padding-lg {
+  padding: 1.5rem;
+}
+
+/* Transições fluidas globais */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Microinteração em botões */
+.btn-glow:hover {
+  box-shadow: 0 0 28px -4px rgba(124, 58, 237, 0.45);
+}
+
+/* Select/option: dropdown nativo com fundo claro mostra texto escuro (evita texto branco invisível) */
+select option {
+  color: #171717;
+  background-color: #ffffff;
+}
