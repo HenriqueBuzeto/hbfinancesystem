@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Plus, Search, Filter, Pencil, Trash2, ArrowDownCircle, CheckCircle, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { BillModal, type BillFormData } from '@/components/bills/BillModal';
-import { cn } from '@nebula-finance/ui';
+import { cn } from '@hb-finance/ui';
 import type { Bill, BillStatus } from '@/lib/types/bills';
 import { BILL_STATUS_LABEL, RECURRENCE_LABEL } from '@/lib/types/bills';
 

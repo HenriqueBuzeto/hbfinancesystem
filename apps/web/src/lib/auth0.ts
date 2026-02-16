@@ -30,7 +30,6 @@ function getAuth0(): Auth0Client | null {
       login: '/api/auth0/login',
       callback: '/api/auth0/callback',
       logout: '/api/auth0/logout',
-      profile: '/api/auth0/me',
     },
   });
   return client;

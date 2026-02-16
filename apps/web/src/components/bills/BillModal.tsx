@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import { cn } from '@nebula-finance/ui';
+import { cn } from '@hb-finance/ui';
 import type { Bill, BillStatus, RecurrenceType } from '@/lib/types/bills';
 import { BILL_STATUS_LABEL, RECURRENCE_LABEL } from '@/lib/types/bills';
 

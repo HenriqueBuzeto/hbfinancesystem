@@ -16,7 +16,7 @@ import {
   Legend,
 } from 'recharts';
 import { TrendingUp, AlertTriangle, Loader2, Receipt } from 'lucide-react';
-import { cn } from '@nebula-finance/ui';
+import { cn } from '@hb-finance/ui';
 
 type CategoryExpense = {
   id: string;

@@ -13,7 +13,7 @@ import {
   Loader2,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { cn } from '@nebula-finance/ui';
+import { cn } from '@hb-finance/ui';
 
 type Notification = {
   id: string;

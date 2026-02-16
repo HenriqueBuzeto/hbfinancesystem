@@ -6,7 +6,7 @@ import { X, Zap, Crown, Check } from 'lucide-react';
 import Link from 'next/link';
 import type { PlanSlug } from '@/lib/plans/constants';
 import { PLAN_LABELS, PLAN_ORDER } from '@/lib/plans/constants';
-import { cn } from '@nebula-finance/ui';
+import { cn } from '@hb-finance/ui';
 
 type UpgradeModalProps = {
   open: boolean;

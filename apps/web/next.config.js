@@ -7,7 +7,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '../../services/api/.en
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@nebula-finance/ui', 'jose'],
+  transpilePackages: ['@hb-finance/ui', 'jose'],
   reactStrictMode: true,
   output: process.env.DOCKER_BUILD === '1' ? 'standalone' : undefined,
   images: {

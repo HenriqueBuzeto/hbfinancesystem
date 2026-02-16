@@ -24,7 +24,7 @@ import {
   Crown,
   CreditCard,
 } from 'lucide-react';
-import { cn } from '@nebula-finance/ui';
+import { cn } from '@hb-finance/ui';
 import { usePlanAccess } from '@/lib/plans/usePlanAccess';
 
 const navItemsBase = [

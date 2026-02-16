@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
   const successUrl = `${baseUrl}/app/planos?success=1&session_id={CHECKOUT_SESSION_ID}`;
   const cancelUrl = `${baseUrl}/app/planos?canceled=1`;
 
-  const stripe = new Stripe(secret, { apiVersion: '2023-10-16' });
+  const stripe = new Stripe(secret, { apiVersion: '2023-10-16' as Stripe.LatestApiVersion });
 
   const isProductId = planId.startsWith('prod_');
   const lineItem: Stripe.Checkout.SessionCreateParams.LineItem = isProductId

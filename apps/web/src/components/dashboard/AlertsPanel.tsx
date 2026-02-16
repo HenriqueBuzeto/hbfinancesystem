@@ -6,7 +6,7 @@
  */
 import { motion } from 'framer-motion';
 import { AlertCircle, Calendar, TrendingDown, Wallet } from 'lucide-react';
-import { cn } from '@nebula-finance/ui';
+import { cn } from '@hb-finance/ui';
 
 export type AlertItem = {
   id: string;

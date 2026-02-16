@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import { Sidebar } from './Sidebar';
 import { ParticlesBackground } from './ParticlesBackground';
-import { cn } from '@nebula-finance/ui';
+import { cn } from '@hb-finance/ui';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [sidebarWidth, setSidebarWidth] = useState(260);

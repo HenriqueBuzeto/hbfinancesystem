@@ -201,7 +201,7 @@ export function CalendarioView() {
                         py={1}
                         borderRadius="md"
                         bg={ev.type === 'PAYABLE' ? 'red.500' : 'green.600'}
-                        bgOpacity={0.9}
+                        opacity={0.9}
                         color="white"
                         noOfLines={1}
                         title={`${ev.title} ${formatCurrency(ev.amount)}${ev.isRecurring ? ' (fixa)' : ''}`}

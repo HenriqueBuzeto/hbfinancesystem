@@ -6,7 +6,7 @@ import { usePlanAccess } from '@/lib/plans/usePlanAccess';
 import { PLAN_LABELS, PLAN_ORDER, type PlanSlug } from '@/lib/plans/constants';
 import { Crown, Zap, Check, Sparkles, Loader2, Tag } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { cn } from '@nebula-finance/ui';
+import { cn } from '@hb-finance/ui';
 
 const FEATURES: Record<PlanSlug, string[]> = {
   FREE: [
